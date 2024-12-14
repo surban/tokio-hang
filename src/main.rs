@@ -34,4 +34,7 @@ async fn main() {
 
     let task = async move { tokio::join!(send_task(a_tx), recv_task(b_rx)) };
     timeout(Duration::from_secs(60), task).await.unwrap();
+
+    // works without timeout:
+    // task.await;
 }
